@@ -197,7 +197,7 @@ PROCESS_THREAD(measure_process, ev, data)
 			message.pressure = 0;
 		}
 
-		printf("001{\"uid\": \"%s\", \"Temperature\": %ld.%02d, \"Light\": %d.%02d, \"Humidity\": %d.%02d, \"Pressure\": %d.%02d}002\n", /*(int) message.uid*/message.name, (long) message.temperature, (unsigned) ((message.temperature-my_floor(message.temperature))*100), (long) message.light / 100, (unsigned) message.light % 100, (long) message.humidity / 100, (unsigned) message.humidity % 100, (long) message.pressure / 100, (unsigned) message.pressure % 100);
+		printf("001{\"uid\": \"%s\", \"Temperature\": %ld.%02d, \"Light\": %d.%02d, \"Humidity\": %d.%02d, \"Pressure\": %d.%02d}002", /*(int) message.uid*/message.name, (long) message.temperature, (unsigned) ((message.temperature-my_floor(message.temperature))*100), (long) message.light / 100, (unsigned) message.light % 100, (long) message.humidity / 100, (unsigned) message.humidity % 100, (long) message.pressure / 100, (unsigned) message.pressure % 100);
 
 
 
