@@ -69,19 +69,7 @@ receiver(struct simple_udp_connection *c,
 	if(datalen == sizeof(struct udp_payload)){
 		struct udp_payload mesg;
 		memcpy(&mesg, data, sizeof(struct udp_payload));
-
-		//printf("001{\"uid\": %s, \"Temperature\": %ld.%02d}002\n", /*(int) message.uid*/message.name, (long) message.temperature, (unsigned) ((message.temperature-my_floor(message.temperature))*100));
-		//printf("001{\"uid\": %s, \"Light\": %d.%02d}002\n", /*(int) message.uid*/message.name, (long) message.light / 100, (unsigned) message.light % 100);
-		//printf("001{\"uid\": %s, \"Humidity\": %d.%02d}002\n",  /*(int) message.uid*/message.name, (long) message.humidity / 100, (unsigned) message.humidity % 100);
-		//printf("001{\"uid\": %s, \"Pressure\": %d.%02d}002\n", /*(int) message.uid*/message.name, (long) message.pressure / 100, (unsigned) message.pressure % 100);
-		//printf("\\n{'uid': %s, 'Temperature': %ld.%02d}\\n", /*(int) mesg.uid*/ mesg.name, (long) mesg.temperature, (unsigned) ((mesg.temperature-my_floor(mesg.temperature))*100));
-		printf("{\"uid\": \"%s\", \"Temperature\": %ld.%02d, \"Light\": %d.%02d, \"Humidity\": %d.%02d, \"Pressure\": %d.%02d}\n", /*(int) message.uid*/mesg.name, (long) mesg.temperature, (unsigned) ((mesg.temperature-my_floor(mesg.temperature))*100), (long) mesg.light / 100, (unsigned) mesg.light % 100, (long) mesg.humidity / 100, (unsigned) mesg.humidity % 100, (long) mesg.pressure / 100, (unsigned) mesg.pressure % 100);
-		//printf("001{\"uid\": %s, \"Light\": %d.%02d}002\n", /*(int) message.uid*/message.name, (long) message.light / 100, (unsigned) message.light % 100);
-		//printf("001{\"uid\": %s, \"Humidity\": %d.%02d}002\n",  /*(int) message.uid*/message.name, (long) message.humidity / 100, (unsigned) message.humidity % 100);
-		//printf("001{\"uid\": %s, \"Pressure\": %d.%02d}002\n", /*(int) message.uid*/message.name, (long) message.pressure / 100, (unsigned) message.pressure % 100);
-
-
-		//printf("%s\n", mesg.name);
+		printf("{\"uid\": \"%s\", \"Temperature\": %ld.%02d, \"Light\": %d.%02d, \"Humidity\": %d.%02d, \"Pressure\": %d.%02d}+", /*(int) message.uid*/mesg.name, (long) mesg.temperature, (unsigned) ((mesg.temperature-my_floor(mesg.temperature))*100), (long) mesg.light / 100, (unsigned) mesg.light % 100, (long) mesg.humidity / 100, (unsigned) mesg.humidity % 100, (long) mesg.pressure / 100, (unsigned) mesg.pressure % 100);
 	}
 	else{
 		printf("Error: data received on port %d from port %d with length %d (unknown length != %d)\n", receiver_port, sender_port, datalen, sizeof(struct udp_payload));
